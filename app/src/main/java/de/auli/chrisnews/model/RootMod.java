@@ -2,6 +2,15 @@ package de.auli.chrisnews.model;
 
 import java.util.List;
 
+/**
+ * Das ist die Oberkalasse fuer das JSON-Objekt.
+ * Hier wird alles definiert, was hinter der ersten
+ * geschweiften Klammer kommt und vor der lettzten
+ * geschweiften Klammer endet.
+ *
+ * U.a haelt die Klasse eine Liste von Artikeln, die im Jason als
+ * Array 'articles' auftauchen
+ */
 public class RootMod extends Model {
     private String status;
     private Integer totalResults;

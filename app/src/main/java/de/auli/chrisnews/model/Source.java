@@ -1,5 +1,15 @@
 package de.auli.chrisnews.model;
 
+/**
+ * Bildet das 'source' - Objekt ab ..
+ *
+ * "source": {
+ *         "id": null,
+ *         "name": "Lefigaro.fr"
+ *       },
+ *
+ * ... in dem eine Id und eine name definiert sind
+ */
 public class Source {
     private String id;
     private String name;
