@@ -3,11 +3,10 @@ package de.auli.chrisnews.service;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-import de.auli.chrisnews.model.RootMod;
+import de.auli.chrisnews.model.Result;
 
 /**
  * Wir erzeugen eine com.fasterxml.jackson.databind.ObjectMapper Instanz und configuriern sie ein bisschen,
@@ -33,10 +32,10 @@ public class MapperService {
     }
 
     // Hier passiert die Magic ... Ein JSON-String geht rein und ein komplettes Model kommt raus.
-    public RootMod unmarshall(String json) throws Exception {
+    public Result unmarshall(String json) throws Exception {
         //AnnotationIntrospector introspector = new JaxbAnnotationIntrospector(mapper.getTypeFactory());
         //mapper.setAnnotationIntrospector(introspector);
-        RootMod model = mapper.readValue(json, RootMod.class);
+        Result model = mapper.readValue(json, Result.class);
         return model;
     }
 

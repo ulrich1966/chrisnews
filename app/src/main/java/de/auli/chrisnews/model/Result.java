@@ -11,7 +11,7 @@ import java.util.List;
  * U.a haelt die Klasse eine Liste von Artikeln, die im Jason als
  * Array 'articles' auftauchen
  */
-public class RootMod extends Model {
+public class Result extends Model {
     private String status;
     private Integer totalResults;
     private List<Article> articles;
