@@ -17,7 +17,7 @@ public class HttpRequestServie {
     private static final String TAG = HttpRequestServie.class.getSimpleName();
     private static final String URL = "https://newsapi.org/v2/everything?q=%1$s&from=%2$s&sortBy=%3$s&apiKey=%4$s";
     private static String topic = "bitcoin";
-    private static String date = "2019-02-11";
+    private static String date = "2019-02-22";
     private static String sort = "publishedAt";
     private static final String KEY = "9431d6330468459089be9c8f612da313";
     //private static final String KEY = String.format("%s", R.string.weather_key); --> Results in different Number!!!
@@ -27,17 +27,15 @@ public class HttpRequestServie {
         HttpRequestServie.topic = topic;
         HttpRequestServie.date = date;
         HttpRequestServie.sort = sort;
-        return crateResult();
+        return createResult();
     }
 
     public static Result getNews() throws JSONException, IOException {
-        return crateResult();
+        return createResult();
     }
 
-    private static Result crateResult() throws JSONException, IOException {
+    private static Result createResult() throws JSONException, IOException {
         String reqUrl = String.format(URL, topic, date, sort, KEY);
-
-
         System.out.println(reqUrl);
 
         final String jsonData = executeServerRequest(reqUrl);
