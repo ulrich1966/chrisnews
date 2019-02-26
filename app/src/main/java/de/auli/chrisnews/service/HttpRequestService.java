@@ -13,8 +13,8 @@ import java.net.URL;
 import de.auli.chrisnews.model.Result;
 
 
-public class HttpRequestServie {
-    private static final String TAG = HttpRequestServie.class.getSimpleName();
+public class HttpRequestService {
+    private static final String TAG = HttpRequestService.class.getSimpleName();
     private static final String URL = "https://newsapi.org/v2/everything?q=%1$s&from=%2$s&sortBy=%3$s&apiKey=%4$s";
     private static String topic = "bitcoin";
     private static String date = "2019-02-22";
@@ -24,9 +24,9 @@ public class HttpRequestServie {
     private static HttpURLConnection connection = null;
 
     public static Result getNews(String topic, String date, String sort) throws JSONException, IOException {
-        HttpRequestServie.topic = topic;
-        HttpRequestServie.date = date;
-        HttpRequestServie.sort = sort;
+        HttpRequestService.topic = topic;
+        HttpRequestService.date = date;
+        HttpRequestService.sort = sort;
         return createResult();
     }
 
@@ -51,11 +51,11 @@ public class HttpRequestServie {
 
     private static String executeServerRequest(String url) throws IOException {
         StringBuilder sb = new StringBuilder();
-        HttpRequestServie.connection = (HttpURLConnection) new URL(url).openConnection();
-        HttpRequestServie.connection.setRequestProperty("Content-Type", "application/json");
+        HttpRequestService.connection = (HttpURLConnection) new URL(url).openConnection();
+        HttpRequestService.connection.setRequestProperty("Content-Type", "application/json");
 
-        if (HttpRequestServie.connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-            InputStreamReader inputStreamReader = new InputStreamReader(HttpRequestServie.connection.getInputStream());
+        if (HttpRequestService.connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+            InputStreamReader inputStreamReader = new InputStreamReader(HttpRequestService.connection.getInputStream());
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             String line;
             while ((line = bufferedReader.readLine()) != null) {
@@ -64,7 +64,7 @@ public class HttpRequestServie {
             bufferedReader.close();
         }
 
-        HttpRequestServie.connection.disconnect();
+        HttpRequestService.connection.disconnect();
         String jsonResult = sb.toString();
         return jsonResult;
     }
